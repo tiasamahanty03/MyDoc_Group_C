@@ -90,210 +90,210 @@ export const doctors = [
         _id: 'doc1',
         name: 'Dr. Jay Srivastav',
         image: doc1,
-        speciality: 'General physician',
+        speciality: 'General Physician',
         degree: 'MBBS',
         experience: '4 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
+        about: 'Dr. Jay is dedicated to preventive care and timely diagnosis, ensuring holistic well-being for patients in his Kolkata clinic.',
         fees: 300,
         address: {
-            line1: '17th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
+            line1: '17th Cross, Ballygunge',
+            line2: 'South Kolkata, West Bengal'
         }
     },
     {
         _id: 'doc2',
-        name: 'Dr. Emily Larson',
+        name: 'Dr. Sushmita Banerjee',
         image: doc2,
-        speciality: 'Gynecologist',
-        degree: 'MBBS',
-        experience: '3 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 60,
+        speciality: 'Dermatologist',
+        degree: 'MBBS, MD (Dermatology)',
+        experience: '6 Years',
+        about: 'Specializing in skin and cosmetic treatments, Dr. Banerjee is known for her ethical and effective approach in Salt Lake.',
+        fees: 400,
         address: {
-            line1: '27th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
+            line1: 'Sector 1, Salt Lake City',
+            line2: 'Kolkata, West Bengal'
         }
     },
     {
         _id: 'doc3',
-        name: 'Dr. Sarah Patel',
+        name: 'Dr. Abhijit Dutta',
         image: doc3,
-        speciality: 'Dermatologist',
-        degree: 'MBBS',
-        experience: '1 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 30,
+        speciality: 'Cardiologist',
+        degree: 'MBBS, MD, DM (Cardiology)',
+        experience: '10 Years',
+        about: 'Dr. Dutta provides world-class cardiac care in Durgapur, with a focus on non-invasive and interventional cardiology.',
+        fees: 800,
         address: {
-            line1: '37th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+            line1: 'City Centre, Durgapur',
+            line2: 'West Bengal'
+    }
     },
     {
         _id: 'doc4',
-        name: 'Dr. Christopher Lee',
+        name: 'Dr. Aranya Sen',
         image: doc4,
-        speciality: 'Pediatricians',
-        degree: 'MBBS',
-        experience: '2 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 40,
+        speciality: 'Gynecologist',
+        degree: 'MBBS, MS (OBG)',
+        experience: '8 Years',
+        about: 'With a compassionate approach to women’s health, Dr. Sen practices in Behala, specializing in prenatal and fertility care.',
+        fees: 500,
         address: {
-            line1: '47th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
+            line1: 'Diamond Harbour Road',
+            line2: 'Behala, Kolkata'
         }
     },
     {
         _id: 'doc5',
-        name: 'Dr. Jennifer Garcia',
+        name: 'Dr. Subhashree Mitra',
         image: doc5,
-        speciality: 'Neurologist',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 50,
+        speciality: 'Pediatrician',
+        degree: 'MBBS, MD (Pediatrics)',
+        experience: '7 Years',
+        about: 'Dr. Mitra is well-known in Siliguri for his friendly and thorough pediatric care for newborns and children.',
+        fees: 350,
         address: {
-            line1: '57th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
+            line1: 'Sevoke Road',
+            line2: 'Siliguri, West Bengal'
         }
     },
     {
         _id: 'doc6',
-        name: 'Dr. Andrew Williams',
+        name: 'Dr. Ivan Roy',
         image: doc6,
-        speciality: 'Neurologist',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 50,
+        speciality: 'Dentist',
+        degree: 'BDS, MDS',
+        experience: '5 Years',
+        about: 'Dr. Roy runs a modern dental clinic in New Town and specializes in painless root canals and cosmetic dentistry.',
+        fees: 300,
         address: {
-            line1: '57th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+        line1: 'Action Area I',
+        line2: 'New Town, Kolkata'
+    }
     },
     {
         _id: 'doc7',
-        name: 'Dr. Christopher Davis',
+        name: 'Dr. Rakesh Chatterjee',
         image: doc7,
-        speciality: 'General physician',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 50,
+        speciality: 'Orthopedic Surgeon',
+        degree: 'MBBS, MS (Ortho)',
+        experience: '9 Years',
+        about: 'Expert in joint replacement and sports injuries, Dr. Chatterjee practices at a renowned hospital in Howrah.',
+        fees: 700,
         address: {
-            line1: '17th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+        line1: 'Shibpur Road',
+        line2: 'Howrah, West Bengal'
+    }
     },
     {
         _id: 'doc8',
-        name: 'Dr. Timothy White',
+        name: 'Dr. Mousam Ghosh',
         image: doc8,
-        speciality: 'Gynecologist',
-        degree: 'MBBS',
-        experience: '3 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 60,
+        speciality: 'Psychiatrist',
+        degree: 'MBBS, MD (Psychiatry)',
+        experience: '6 Years',
+        about: 'With a warm and understanding approach, Dr. Ghosh helps patients manage stress, anxiety, and mood disorders.',
+        fees: 600,
         address: {
-            line1: '27th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+        line1: 'Deshpran Sasmal Road',
+        line2: 'Tollygunge, Kolkata'
+    }
     },
     {
         _id: 'doc9',
-        name: 'Dr. Ava Mitchell',
+        name: 'Dr. Shreya Majumder',
         image: doc9,
-        speciality: 'Dermatologist',
-        degree: 'MBBS',
-        experience: '1 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 30,
+        speciality: 'Neurologist',
+        degree: 'MBBS, DM (Neurology)',
+        experience: '11 Years',
+        about: 'Dr. Majumder specializes in stroke, epilepsy, and headaches, serving patients in Bardhaman district.',
+        fees: 900,
         address: {
-            line1: '37th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+        line1: 'Grand Trunk Road',
+        line2: 'Bardhaman, West Bengal'
+    }
     },
     {
         _id: 'doc10',
-        name: 'Dr. Jeffrey King',
+        name: 'Dr. Santanu Das',
         image: doc10,
-        speciality: 'Pediatricians',
-        degree: 'MBBS',
-        experience: '2 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 40,
-        address: {
-            line1: '47th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+        speciality: 'ENT Specialist',
+        degree: 'MBBS, DLO',
+        experience: '5 Years',
+        about: 'Dr. Das handles ear, nose, and throat issues for all age groups at her clinic in Kalyani.',
+    fees: 350,
+    address: {
+        line1: 'Block A, Kalyani',
+        line2: 'Nadia, West Bengal'
+    }
     },
     {
-        _id: 'doc11',
-        name: 'Dr. Zoe Kelly',
-        image: doc11,
-        speciality: 'Neurologist',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 50,
-        address: {
-            line1: '57th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+    _id: 'doc11',
+    name: 'Dr. Srinjoyee Ghosh',
+    image: doc11,
+    speciality: 'Urologist',
+    degree: 'MBBS, MS, MCh (Urology)',
+    experience: '12 Years',
+    about: 'Practicing in Midnapore, Dr. Ghosh is a specialist in kidney stones and urinary tract disorders.',
+    fees: 750,
+    address: {
+        line1: 'Hospital Road',
+        line2: 'Midnapore, West Bengal'
+    }
     },
     {
-        _id: 'doc12',
-        name: 'Dr. Patrick Harris',
-        image: doc12,
-        speciality: 'Neurologist',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 50,
-        address: {
-            line1: '57th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+    _id: 'doc12',
+    name: 'Dr. Priyankan Saha',
+    image: doc12,
+    speciality: 'Ophthalmologist',
+    degree: 'MBBS, MS (Ophthalmology)',
+    experience: '6 Years',
+    about: 'Dr. Saha offers modern eye care including LASIK, cataract surgery, and diabetic retinopathy management.',
+    fees: 450,
+    address: {
+        line1: 'Shyambazar Crossing',
+        line2: 'North Kolkata, West Bengal'
+    }
     },
     {
-        _id: 'doc13',
-        name: 'Dr. Chloe Evans',
-        image: doc13,
-        speciality: 'General physician',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 50,
-        address: {
-            line1: '17th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+    _id: 'doc13',
+    name: 'Dr. Anindita Pal',
+    image: doc13,
+    speciality: 'Oncologist',
+    degree: 'MBBS, MD, DM (Oncology)',
+    experience: '13 Years',
+    about: 'Renowned in Eastern India, Dr. Pal leads cancer treatment initiatives and patient awareness programs.',
+    fees: 1000,
+    address: {
+        line1: 'EM Bypass',
+        line2: 'Anandapur, Kolkata'
+    }
     },
     {
-        _id: 'doc14',
-        name: 'Dr. Ryan Martinez',
-        image: doc14,
-        speciality: 'Gynecologist',
-        degree: 'MBBS',
-        experience: '3 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 60,
-        address: {
-            line1: '27th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+    _id: 'doc14',
+    name: 'Dr. Rekha Nandy',
+    image: doc14,
+    speciality: 'Endocrinologist',
+    degree: 'MBBS, MD, DM (Endocrinology)',
+    experience: '8 Years',
+    about: 'Dr. Nandy treats thyroid, diabetes, and hormonal issues with a compassionate and evidence-based approach.',
+    fees: 550,
+    address: {
+        line1: 'Prince Anwar Shah Road',
+        line2: 'South City, Kolkata'
+    }
     },
     {
-        _id: 'doc15',
-        name: 'Dr. Amelia Hill',
-        image: doc15,
-        speciality: 'Dermatologist',
-        degree: 'MBBS',
-        experience: '1 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 30,
-        address: {
-            line1: '37th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
-    },
-]
+    _id: 'doc15',
+    name: 'Dr. Devraj Bhattacharya',
+    image: doc15,
+    speciality: 'Pulmonologist',
+    degree: 'MBBS, MD (Pulmonology)',
+    experience: '9 Years',
+    about: 'Specialist in asthma, COPD, and lung infections, Dr. Bhattacharya is a consultant in Asansol.',
+    fees: 500,
+    address: {
+        line1: 'GT Road',
+        line2: 'Asansol, West Bengal'
+    }
+    }
+];
