@@ -8,7 +8,7 @@ const Footer = () => {
 
        {/*----------LeftSide----------*/}
        <div>
-        <img className='w-[170px] h-[110px] mb-4 ' src={assets.myDoc_logo} alt="" />
+        <img className='w-[130px] h-[75px] mb-4 ' src={assets.myDoc_logo} alt="" />
         <p className='w-full md:w-2/3 text-gray-600 leading-6'>MyDoc is your trusted partner in healthcare, simplifying the way you connect with medical professionals. Whether you're booking consultations, managing appointments, or accessing expert care, our platform ensures a seamless and secure experience. Prioritizing convenience, privacy, and reliability — we bring quality healthcare to your fingertips.</p>
        </div>
 
@@ -35,7 +35,7 @@ const Footer = () => {
        {/*-----------CopyRight---------- */}
             <div>
                 <hr />
-                <p className='py-5 text-sm text-center'>Copyright 2025@MyDoc-All Right Reserved</p>
+                <p className='py-5 text-sm text-center'>Copyright 2025@MyDoc-All Right Reserved.</p>
             </div>
     </div>
     

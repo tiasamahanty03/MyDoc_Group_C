@@ -60,7 +60,7 @@ export const assets = {
 
 export const specialityData = [
     {
-        speciality: 'General physician',
+        speciality: 'General Physician',
         image: General_physician
     },
     {
@@ -72,7 +72,7 @@ export const specialityData = [
         image: Dermatologist
     },
     {
-        speciality: 'Pediatricians',
+        speciality: 'Pediatrician',
         image: Pediatricians
     },
     {
@@ -118,10 +118,10 @@ export const doctors = [
         _id: 'doc3',
         name: 'Dr. Abhijit Dutta',
         image: doc3,
-        speciality: 'Cardiologist',
-        degree: 'MBBS, MD, DM (Cardiology)',
-        experience: '10 Years',
-        about: 'Dr. Dutta provides world-class cardiac care in Durgapur, with a focus on non-invasive and interventional cardiology.',
+        speciality: 'General Physician',
+        degree: 'MBBS',
+        experience: '4 Years',
+        about: 'Dr. Dutta is dedicated to preventive care and timely diagnosis, ensuring holistic well-being for patients in his Durgapur clinic.',
         fees: 800,
         address: {
             line1: 'City Centre, Durgapur',
@@ -241,27 +241,28 @@ export const doctors = [
     }
     },
     {
-    _id: 'doc12',
+    id: 'doc12',
     name: 'Dr. Priyankan Saha',
     image: doc12,
-    speciality: 'Ophthalmologist',
-    degree: 'MBBS, MS (Ophthalmology)',
+    speciality: 'Neurologist', 
+    degree: 'MBBS, MD, DM (Neurology)', 
     experience: '6 Years',
-    about: 'Dr. Saha offers modern eye care including LASIK, cataract surgery, and diabetic retinopathy management.',
+    about: 'Dr. Saha specializes in neurological disorders including epilepsy, stroke, and movement disorders.', //
     fees: 450,
     address: {
         line1: 'Shyambazar Crossing',
         line2: 'North Kolkata, West Bengal'
     }
+
     },
     {
-    _id: 'doc13',
+    id: 'doc13',
     name: 'Dr. Anindita Pal',
     image: doc13,
-    speciality: 'Oncologist',
-    degree: 'MBBS, MD, DM (Oncology)',
+    speciality: 'Gastroenterologist', 
+    degree: 'MBBS, MD, DM (Gastroenterology)',
     experience: '13 Years',
-    about: 'Renowned in Eastern India, Dr. Pal leads cancer treatment initiatives and patient awareness programs.',
+    about: 'Expert in digestive disorders and liver diseases, Dr. Pal has led numerous GI awareness campaigns.',
     fees: 1000,
     address: {
         line1: 'EM Bypass',
@@ -270,9 +271,9 @@ export const doctors = [
     },
     {
     _id: 'doc14',
-    name: 'Dr. Rekha Nandy',
+    name: 'Dr. Rajesh Nandy',
     image: doc14,
-    speciality: 'Endocrinologist',
+    speciality: 'Gastroenterologist',
     degree: 'MBBS, MD, DM (Endocrinology)',
     experience: '8 Years',
     about: 'Dr. Nandy treats thyroid, diabetes, and hormonal issues with a compassionate and evidence-based approach.',
@@ -284,12 +285,12 @@ export const doctors = [
     },
     {
     _id: 'doc15',
-    name: 'Dr. Devraj Bhattacharya',
+    name: 'Dr. Drishti Bhattacharya',
     image: doc15,
-    speciality: 'Pulmonologist',
-    degree: 'MBBS, MD (Pulmonology)',
+    speciality: 'Dermatologist',
+    degree: 'MBBS, MD(Dermatology)',
     experience: '9 Years',
-    about: 'Specialist in asthma, COPD, and lung infections, Dr. Bhattacharya is a consultant in Asansol.',
+    about: 'Specializing in skin and cosmetic treatments, Dr. Banerjee is known for her ethical and effective approach in Asansol.',
     fees: 500,
     address: {
         line1: 'GT Road',
