@@ -40,7 +40,7 @@ useEffect(()=>{
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
           {
             filterDoc.map((item,index)=>(
-            <div onClick={()=> navigate(`./Appointment/${item._id}`)} className='border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-15px] transition-all duration-900' key={index}>
+            <div onClick={()=> navigate(`./appointment/${item._id}`)} className='border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-15px] transition-all duration-900' key={index}>
                 <img className='bg-blue-50' src={item.image} alt="" />
                 <div className='p-4'>
                   <div className='flex items-center gap- text-sm text-center text-green-500'>
