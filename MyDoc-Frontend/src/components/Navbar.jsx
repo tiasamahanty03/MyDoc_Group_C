@@ -52,6 +52,7 @@ const Navbar = () => {
           :<button onClick={()=>navigate('/login')}
         className='bg-purple-500 text-white px-8 py-3 rounded-full font-medium hidden md:block'>Create/Login</button>
         }
+        <img className='w-6 md:hidden' src={assets.menu_icon} alt="" />
       </div>
     </div>
   )

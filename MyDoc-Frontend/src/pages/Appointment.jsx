@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
 import Doctors from './Doctors'
 import { assets } from '../assets/assets'
+import RelatedDoctors from '../components/RelatedDoctors'
 
 const Appointment = () => {
 
@@ -30,7 +31,7 @@ setDocSlots([])
 //getting current date
 let today = new Date()
 
-for(let i=0 ; i<7 ; i++){
+for(let i=0 ; i<8 ; i++){
   //getting current date with index
   let currentDate = new Date(today)
   currentDate.setDate(today.getDate()+i)
@@ -123,11 +124,30 @@ useEffect(()=>{
         }
       </div>
 
-      <div>
-        
-      </div>
+      {docSlots.length > 0 && (
+  <div className="mt-4">
+    <label className='block mb-1 text-sm'>Select Time Slot:</label>
+    <select
+      className="px-4 py-2 border border-gray-300 rounded-md hover:scale-95 transition-all shadow"
+      value={slotTime}
+      onChange={(e) => setSlotTime(e.target.value)}
+    >
+      <option value="">-- Choose a time --</option>
+      {docSlots[slotIndex]?.map((item, index) => (
+        <option key={index} value={item.time}>
+          {item.time.toLowerCase()}
+        </option>
+      ))}
+    </select>
+  </div>
+)}
 
-    </div>
+<div>
+  <button className='bg-purple-500 text-white text-sm font-medium px-14 py-3 rounded-full my-6 hover:scale-105 shadow'>Book Appointment</button>
+</div>
+<RelatedDoctors docId = {docId} speciality={docInfo.speciality} />
+
+      </div>
     </div>
   )
 }
