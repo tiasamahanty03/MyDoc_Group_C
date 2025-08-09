@@ -16,7 +16,7 @@ const Header = () => {
          </div>
          <div id="speciality" className="scroll-mt-20">
          </div>
-         <a href="#speciality" className=' flex items-center gap-2 bg-white px-8 py-3 rounded-full text-gray-500 text-sm m-auto md:m-0 hover:scale-105 transition-all duration-300 ease-in-out shadow-md'>
+         <a href="#speciality" className=' flex items-center gap-2 bg-white px-8 py-3 rounded-full text-purple-900 text-sm m-auto md:m-0 hover:scale-105 hover:bg-gray-100 transition-all duration-300 ease-in-out shadow-md'>
             Book appointment <img className='w-3' src={assets.arrow_icon}alt="" />
          </a>
       </div>
