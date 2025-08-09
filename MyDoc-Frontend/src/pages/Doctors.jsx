@@ -11,15 +11,24 @@ const { speciality } = useParams();
 const [filterDoc,setFilterDoc] = useState([])
 const navigate = useNavigate()
 
-const {doctors} = useContext(AppContext)
+const {doctors, searchTerm } = useContext(AppContext)
 
 const applyFilter = () => {
+  let filtered = doctors;
+
   if (speciality) {
-    setFilterDoc(doctors.filter(doc => doc.speciality === speciality))
-  } else {
-    setFilterDoc(doctors)
+    filtered = filtered.filter(doc => doc.speciality === speciality);
   }
-}
+
+  if (searchTerm) {
+    filtered = filtered.filter(doc =>
+      doc.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      doc.speciality.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+
+  setFilterDoc(filtered);
+};
 
 useEffect(()=>{
   applyFilter()
