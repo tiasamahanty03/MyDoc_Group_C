@@ -1,22 +1,26 @@
-import { createContext, } from "react";
+import { createContext, useState } from "react";
 import { doctors } from "../assets/assets";
-import Doctors from "../pages/Doctors";
 
-export const AppContext = createContext()
+export const AppContext = createContext();
 
 const AppContextProvider = (props) => {
+    const currencySymbol = '₹';
 
-    const currencySymbol = '₹'
+    // NEW: State for search term
+    const [searchTerm, setSearchTerm] = useState("");
 
     const value = {
-        doctors,currencySymbol
-    }
+        doctors,
+        currencySymbol,
+        searchTerm,      // expose searchTerm
+        setSearchTerm    // expose setter
+    };
 
-    return(
+    return (
         <AppContext.Provider value={value}>
             {props.children}
         </AppContext.Provider>
-    )
-}
+    );
+};
 
-export default AppContextProvider
+export default AppContextProvider;
