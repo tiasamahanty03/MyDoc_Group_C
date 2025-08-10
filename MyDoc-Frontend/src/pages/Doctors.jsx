@@ -6,7 +6,6 @@ import { doctors } from '../assets/assets';
 const Doctors = () => {
 
 const { speciality } = useParams();
-/*console.log(speciality)*/
 
 const [filterDoc,setFilterDoc] = useState([])
 const navigate = useNavigate()

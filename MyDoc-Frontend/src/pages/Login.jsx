@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 const Login = () => {
-  const [state, setState] = useState('Sign Up');
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [state, setState] = useState('Sign Up')
+  const [fullName, setFullName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const onSubmitHandler = async (event) => {
-    event.preventDefault();
-    console.log({ fullName, email, password });
-  };
+    event.preventDefault()
+    console.log({ fullName, email, password })
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-purple-50 to-purple-100">
@@ -88,7 +88,7 @@ const Login = () => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
