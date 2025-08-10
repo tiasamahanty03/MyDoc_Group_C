@@ -1,12 +1,12 @@
-import React, { useContext, useState } from 'react';
-import { assets } from '../assets/assets';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { AppContext } from '../context/AppContext';
+import React, { useContext, useState } from 'react'
+import { assets } from '../assets/assets'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { AppContext } from '../context/AppContext'
 
 const Navbar = () => {
   
   const { searchTerm,setSearchTerm} = useContext(AppContext)
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleSearch = (e) =>{
     if (e.key === "Enter")(
@@ -14,22 +14,13 @@ const Navbar = () => {
     )
   }
 
-  // Simulated login state
   const [token, setToken] = useState(true);
   const [isAdmin] = useState(true); // Change to false for non-admin
   const [username] = useState("Tiasa!!"); // Replace with actual username from context/auth
 
   return (
     <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-purple-400 bg-white sticky top-0 z-90 shadow-sm px-4 md:px-8'>
-      {/* Logo */}
-      <img
-        onClick={() => navigate('/')}
-        className='w-[100px] h-[60px] cursor-pointer'
-        src={assets.myDoc_logo}
-        alt="logo"
-      />
-
-      {/* Navigation Links */}
+      <img onClick={() => navigate('/')} className='w-[100px] h-[60px] cursor-pointer' src={assets.myDoc_logo}alt="logo"/>
       <ul className='hidden md:flex items-center gap-8 font-medium'>
         {[
           { name: 'Home', path: '/' },
@@ -37,31 +28,20 @@ const Navbar = () => {
           { name: 'About', path: '/about' },
           { name: 'Contact', path: '/contact' },
         ].map((link, index) => (
-          <NavLink
-            key={index}
-            to={link.path}
-            className={({ isActive }) =>
-              isActive
-                ? "text-purple-500 border-b-2 border-purple-500 pb-1"
-                : "hover:text-purple-500"
-            }
-          >
+          <NavLink key={index} to={link.path} className={({ isActive }) => isActive ? "text-purple-500 border-b-2 border-purple-500 pb-1" : "hover:text-purple-500"}>
             {link.name}
           </NavLink>
         ))}
       </ul>
 
-      {/* Right Section */}
       <div className='flex items-center gap-5'>
-        {/* Search bar */}
         <input
           type="text"
           placeholder="Search doctors..."
           className="hidden lg:block px-6 py-1 border rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-purple-400"
           value={searchTerm}
           onChange={(e)=> setSearchTerm(e.target.value)}
-          onKeyDown={handleSearch}
-        />
+          onKeyDown={handleSearch}/>
 
         {token ? (
           <div className='flex items-center gap-2 cursor-pointer group relative'>
@@ -90,7 +70,7 @@ const Navbar = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
