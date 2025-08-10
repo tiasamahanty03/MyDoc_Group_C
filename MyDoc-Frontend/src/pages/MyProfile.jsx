@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { assets } from '../assets/assets';
+import React, { useState } from 'react'
+import { assets } from '../assets/assets'
 
 const MyProfile = () => {
   const [userData, setUserData] = useState({
@@ -15,11 +15,11 @@ const MyProfile = () => {
     dob: 'yyyy-mm-dd'
   });
 
-  const [isEdit, setIsEdit] = useState(false);
+  const [isEdit, setIsEdit] = useState(false)
 
   const handleChange = (field, value) => {
-    setUserData(prev => ({ ...prev, [field]: value }));
-  };
+    setUserData(prev => ({ ...prev, [field]: value }))
+  }
 
   const handleAddressChange = (field, value) => {
     setUserData(prev => ({
@@ -28,15 +28,15 @@ const MyProfile = () => {
         ...prev.address,
         [field]: value
       }
-    }));
-  };
+    }))
+  }
 
   const handleToggleEdit = () => {
     if (isEdit) {
-      console.log("Saved:", userData);
+      console.log("Saved:", userData)
     }
-    setIsEdit(prev => !prev);
-  };
+    setIsEdit(prev => !prev)
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-purple-400 via-purple-300 to-purple-400 p-6">
@@ -74,7 +74,7 @@ const MyProfile = () => {
             ['Gender', 'gender', 'select'],
             ['Date of Birth', 'dob', 'date']
           ].map(([label, key, type, isAddress]) => {
-            const value = isAddress ? userData.address[key] : userData[key];
+            const value = isAddress ? userData.address[key] : userData[key]
             return (
               <div key={key}>
                 <label className="text-sm font-semibold">{label}:</label>
@@ -108,7 +108,7 @@ const MyProfile = () => {
                   </div>
                 )}
               </div>
-            );
+            )
           })}
         </div>
 
@@ -122,7 +122,7 @@ const MyProfile = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default MyProfile;

@@ -6,14 +6,14 @@ export const AppContext = createContext();
 const AppContextProvider = (props) => {
     const currencySymbol = '₹';
 
-    // NEW: State for search term
+    
     const [searchTerm, setSearchTerm] = useState("");
 
     const value = {
         doctors,
         currencySymbol,
-        searchTerm,      // expose searchTerm
-        setSearchTerm    // expose setter
+        searchTerm,      
+        setSearchTerm   
     };
 
     return (

@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 
 const Navbar = () => {
-  const primary = "#9d6cfe";
+  
   const { searchTerm,setSearchTerm} = useContext(AppContext)
   const navigate = useNavigate();
 
