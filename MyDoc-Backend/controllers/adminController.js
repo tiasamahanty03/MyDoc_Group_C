@@ -66,27 +66,37 @@ const addDoctor = async (req, res) => {
 //API for admin login
 const loginAdmin = async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const {email, password} = req.body;
 
-        if (!email || !password) {
-            return res.json({ success: false, message: "Email and password required" });
+        if(email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
+            const token = jwt.sign(email+password,process.env.JWT_SECRET)
+            res.json({success:true,token})
+        } else
+        {
+            res.json({success:false, message: "Invalid credentials"})
         }
 
-        if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
-            const token = jwt.sign(
-                { email }, 
-                process.env.JWT_SECRET, 
-                { expiresIn: '1d' }
-            );
-            return res.json({ success: true, token });
-        } else {
-            return res.json({ success: false, message: "Invalid credentials" });
-        }
+        res.json({success:true, message: "Admin logged in successfully"})
+
     } catch (error) {
-        console.log(error);
-        return res.json({ success: false, message: error.message });
+        console.log(error)
+        res.json({success:false, message: error.message})
     }
 }
 
+//API to get all doctors list from admin panel
+const AllDoctors = async (req, res) => {
 
-export { addDoctor, loginAdmin }
+    try{
+
+        const doctors = await doctorModel.find({}).select('-password')
+        res.json({success:true, doctors})
+
+    }
+    catch (error) {
+        console.log(error)
+        res.json({success:false, message:error.message})
+    }
+}
+
+export { addDoctor, loginAdmin, AllDoctors }
