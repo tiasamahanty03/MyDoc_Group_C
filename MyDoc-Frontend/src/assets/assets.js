@@ -133,7 +133,7 @@ export const doctors = [
         name: 'Dr. Aranya Sen',
         image: doc4,
         speciality: 'Gynecologist',
-        degree: 'MBBS, MS (OBG)',
+        degree: '',
         experience: '8 Years',
         about: 'With a compassionate approach to women’s health, Dr. Sen practices in Behala, specializing in prenatal and fertility care.',
         fees: 500,
@@ -208,7 +208,7 @@ export const doctors = [
         image: doc9,
         speciality: 'Neurologist',
         degree: 'MBBS, DM (Neurology)',
-        experience: '11 Years',
+        experience: '10 Years',
         about: 'Dr. Majumder specializes in stroke, epilepsy, and headaches, serving patients in Bardhaman district.',
         fees: 900,
         address: {
@@ -237,7 +237,7 @@ export const doctors = [
   image: doc11,
   speciality: 'Gynecologist',
   degree: 'MBBS, MS (Obstetrics & Gynecology)',
-  experience: '12 Years',
+  experience: '10 Years',
   about: 'Practicing in Midnapore, Dr. Ghosh specializes in women’s reproductive health, pregnancy care, and management of gynecological disorders.',
   fees: 750,
   address: {
@@ -266,7 +266,7 @@ export const doctors = [
     image: doc13,
     speciality: 'Gastroenterologist', 
     degree: 'MBBS, MD, DM (Gastroenterology)',
-    experience: '13 Years',
+    experience: '10 Years',
     about: 'Expert in digestive disorders and liver diseases, Dr. Pal has led numerous GI awareness campaigns.',
     fees: 1000,
     address: {
