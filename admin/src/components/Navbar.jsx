@@ -1,17 +1,37 @@
-import React ,{useContext} from 'react'
-import { assets } from '../assets/assets'
-import { AdminContext } from '../context/AdminContext.jsx'
+import React, { useContext } from "react"
+import { assets } from "../assets/assets"
+import { AdminContext } from "../context/AdminContext.jsx"
+import { useNavigate } from "react-router-dom"
 
 const Navbar = () => {
+  const { aToken, setAToken } = useContext(AdminContext)
 
-    const {aToken} = useContext(AdminContext)
+  const navigate = useNavigate()
+
+  const logout = () => {
+    navigate("/")
+    aToken && setAToken("")
+    aToken && localStorage.removeItem("aToken")
+  };
+
   return (
-    <div>
-        <div>
-            <img src={assets.admin_logo} alt="" />
-            <p>{aToken ? 'Admin' : 'Doctor'}</p>
-        </div>
-        <button>Logout</button>
+    <div className="flex items-center justify-between text-sm py-3  border-b border-b-purple-400 bg-white sticky top-0 z-90 shadow-sm px-4 md:px-8">
+      <div className="flex items-center gap-280 text-">
+        <img
+          className="h-16 sm:w-27 cursor-pointer"
+          src={assets.myDoc_logo}
+          alt=""
+        />
+        <p className="border px-8 py-3 rounded-full text-white font-medium bg-purple-500  hover:bg-purple-600 transition-all duration-200 ">
+          {aToken ? "Admin" : "Doctor"}
+        </p>
+      </div>
+      <button
+        onClick={logout}
+        className="bg-purple-500 text-white px-8 py-3 rounded-full font-medium hidden md:block hover:bg-purple-600 transition-all duration-200"
+      >
+        Logout
+      </button>
     </div>
   )
 }
