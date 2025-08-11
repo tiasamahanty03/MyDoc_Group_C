@@ -157,47 +157,51 @@ export const doctors = [
         }
     },
     {
+        
         _id: 'doc6',
         name: 'Dr. Ivan Roy',
         image: doc6,
-        speciality: 'Dentist',
-        degree: 'BDS, MDS',
+        speciality: 'Pediatrician',
+        degree: 'MBBS, MD (Pediatrics)',
         experience: '5 Years',
-        about: 'Dr. Roy runs a modern dental clinic in New Town and specializes in painless root canals and cosmetic dentistry.',
+        about: 'Dr. Roy is a dedicated pediatrician in New Town, specializing in child healthcare, vaccinations, and developmental guidance for infants and children.',
         fees: 300,
         address: {
-        line1: 'Action Area I',
-        line2: 'New Town, Kolkata'
-    }
+            line1: 'Action Area I',
+            line2: 'New Town, Kolkata'
+        }
     },
     {
+    
         _id: 'doc7',
         name: 'Dr. Rakesh Chatterjee',
         image: doc7,
-        speciality: 'Orthopedic Surgeon',
-        degree: 'MBBS, MS (Ortho)',
+        speciality: 'Gynecologist',
+        degree: 'MBBS, MD (Obstetrics & Gynecology)',
         experience: '9 Years',
-        about: 'Expert in joint replacement and sports injuries, Dr. Chatterjee practices at a renowned hospital in Howrah.',
+        about: 'Dr. Chatterjee is a highly experienced gynecologist in Howrah, specializing in women’s health, prenatal care, infertility treatment, and safe deliveries.',
         fees: 700,
         address: {
-        line1: 'Shibpur Road',
-        line2: 'Howrah, West Bengal'
-    }
-    },
-    {
-        _id: 'doc8',
-        name: 'Dr. Mousam Ghosh',
-        image: doc8,
-        speciality: 'Psychiatrist',
-        degree: 'MBBS, MD (Psychiatry)',
-        experience: '6 Years',
-        about: 'With a warm and understanding approach, Dr. Ghosh helps patients manage stress, anxiety, and mood disorders.',
-        fees: 600,
-        address: {
-        line1: 'Deshpran Sasmal Road',
-        line2: 'Tollygunge, Kolkata'
-    }
-    },
+            line1: 'Shibpur Road',
+            line2: 'Howrah, West Bengal'
+  }
+},
+
+   {
+  _id: 'doc8',
+  name: 'Dr. Mousam Ghosh',
+  image: doc8,
+  speciality: 'General Physician',
+  degree: 'MBBS, MD (General Medicine)',
+  experience: '6 Years',
+  about: 'Dr. Ghosh provides comprehensive primary care, managing a wide range of medical conditions and focusing on preventive health and wellness.',
+  fees: 600,
+  address: {
+    line1: 'Deshpran Sasmal Road',
+    line2: 'Tollygunge, Kolkata'
+  }
+},
+
     {
         _id: 'doc9',
         name: 'Dr. Shreya Majumder',
@@ -213,33 +217,34 @@ export const doctors = [
     }
     },
     {
-        _id: 'doc10',
-        name: 'Dr. Santanu Das',
-        image: doc10,
-        speciality: 'ENT Specialist',
-        degree: 'MBBS, DLO',
-        experience: '5 Years',
-        about: 'Dr. Das handles ear, nose, and throat issues for all age groups at her clinic in Kalyani.',
-    fees: 350,
-    address: {
-        line1: 'Block A, Kalyani',
-        line2: 'Nadia, West Bengal'
-    }
-    },
-    {
-    _id: 'doc11',
-    name: 'Dr. Srinjoyee Ghosh',
-    image: doc11,
-    speciality: 'Urologist',
-    degree: 'MBBS, MS, MCh (Urology)',
-    experience: '12 Years',
-    about: 'Practicing in Midnapore, Dr. Ghosh is a specialist in kidney stones and urinary tract disorders.',
-    fees: 750,
-    address: {
-        line1: 'Hospital Road',
-        line2: 'Midnapore, West Bengal'
-    }
-    },
+  _id: 'doc10',
+  name: 'Dr. Santanu Das',
+  image: doc10,
+  speciality: 'Dermatologist',
+  degree: 'MBBS, MD (Dermatology)',
+  experience: '5 Years',
+  about: 'Dr. Das specializes in diagnosing and treating various skin, hair, and nail conditions, offering both medical and cosmetic dermatology services.',
+  fees: 350,
+  address: {
+    line1: 'Block A, Kalyani',
+    line2: 'Nadia, West Bengal'
+  }
+},
+
+   {
+  _id: 'doc11',
+  name: 'Dr. Srinjoyee Ghosh',
+  image: doc11,
+  speciality: 'Gynecologist',
+  degree: 'MBBS, MS (Obstetrics & Gynecology)',
+  experience: '12 Years',
+  about: 'Practicing in Midnapore, Dr. Ghosh specializes in women’s reproductive health, pregnancy care, and management of gynecological disorders.',
+  fees: 750,
+  address: {
+    line1: 'Hospital Road',
+    line2: 'Midnapore, West Bengal'
+  }
+},
     {
     id: 'doc12',
     name: 'Dr. Priyankan Saha',
@@ -297,4 +302,4 @@ export const doctors = [
         line2: 'Asansol, West Bengal'
     }
     }
-];
+]
