@@ -13,7 +13,7 @@ const Navbar = () => {
       navigate("/doctors")
     )
   }
-  const {token,setToken} = useContext(AppContext)
+  const {token,setToken,userData} = useContext(AppContext)
   const logout = () => {
     setToken(false)
     localStorage.removeItem('token')
@@ -46,19 +46,16 @@ const Navbar = () => {
           onChange={(e)=> setSearchTerm(e.target.value)}
           onKeyDown={handleSearch}/>
 
-        {token ? (
+        {token && userData ? (
           <div className='flex items-center gap-2 cursor-pointer group relative'>
             {/* Greeting */}
             <p className='hidden md:block text-gray-600'>Hi, {username}</p>
-            <img className='w-11 rounded-full' src={assets.profile_pic} alt="profile" />
+            <img className='w-9 h-9.5 rounded-full ' src={userData.image} alt="profile" />
             <img className='w-2.5' src={assets.dropdown_icon} alt="dropdown" />
             <div className='absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 hidden group-hover:block'>
               <div className='min-w-45 bg-stone-100 rounded flex flex-col gap-3 p-3 mt-4'>
                 <p onClick={() => navigate('my-profile')} className='hover:text-black cursor-pointer'>My Profile</p>
                 <p onClick={() => navigate('my-appointments')} className='hover:text-black cursor-pointer'>My Appointments</p>
-                {isAdmin && (
-                  <p onClick={() => navigate('admin/appointments')} className='hover:text-black cursor-pointer'>Admin Panel</p>
-                )}
                 <p onClick={logout} className='hover:text-black cursor-pointer'>Logout</p>
               </div>
             </div>
