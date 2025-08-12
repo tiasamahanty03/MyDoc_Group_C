@@ -18,7 +18,7 @@ const DoctorsList = () => {
             <div 
             key={index} 
             className="bg-indigo-50 hover:bg-indigo-200 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100">
-            <img src={item.Image} alt={item.name} className="w-full h-48 object-cover"/>
+            <img src={item.image} alt={item.name} className="w-full h-48 object-cover"/>
             
             <div className="p-4">
               <p className="text-lg font-semibold text-gray-800">{item.name}</p>

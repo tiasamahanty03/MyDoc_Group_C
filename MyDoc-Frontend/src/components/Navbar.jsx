@@ -13,8 +13,11 @@ const Navbar = () => {
       navigate("/doctors")
     )
   }
-
-  const [token, setToken] = useState(true);
+  const {token,setToken} = useContext(AppContext)
+  const logout = () => {
+    setToken(false)
+    localStorage.removeItem('token')
+  }
   const [isAdmin] = useState(true); // Change to false for non-admin
   const [username] = useState("Tiasa!!"); // Replace with actual username from context/auth
 
@@ -56,7 +59,7 @@ const Navbar = () => {
                 {isAdmin && (
                   <p onClick={() => navigate('admin/appointments')} className='hover:text-black cursor-pointer'>Admin Panel</p>
                 )}
-                <p onClick={() => setToken(false)} className='hover:text-black cursor-pointer'>Logout</p>
+                <p onClick={logout} className='hover:text-black cursor-pointer'>Logout</p>
               </div>
             </div>
           </div>
