@@ -19,7 +19,8 @@ const Navbar = () => {
     localStorage.removeItem('token')
   }
   const [isAdmin] = useState(true); // Change to false for non-admin
-  const [username] = useState("Tiasa!!"); // Replace with actual username from context/auth
+  // const [username] = useState("Tiasa!!"); // Replace with actual username from context/auth
+  const username = userData?.name || "Guest"; // Replaced with actual username
 
   return (
     <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-purple-400 bg-white sticky top-0 z-90 shadow-sm px-4 md:px-8'>
@@ -49,7 +50,7 @@ const Navbar = () => {
         {token && userData ? (
           <div className='flex items-center gap-2 cursor-pointer group relative'>
             {/* Greeting */}
-            <p className='hidden md:block text-gray-600'>Hi, {username}</p>
+            <p className='hidden md:block text-gray-600'>Hi,{username}</p>
             <img className='w-9 h-9.5 rounded-full ' src={userData.image} alt="profile" />
             <img className='w-2.5' src={assets.dropdown_icon} alt="dropdown" />
             <div className='absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 hidden group-hover:block'>
