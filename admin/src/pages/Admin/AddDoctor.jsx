@@ -29,7 +29,7 @@ const AddDoctor = () => {
 
         const formData = new FormData()
 
-        formData.append('image',docImg)
+        formData.append('Image',docImg)
         formData.append('name',name)
         formData.append('email',email)
         formData.append('password',password)
