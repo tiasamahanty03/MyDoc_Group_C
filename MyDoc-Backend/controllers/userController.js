@@ -13,7 +13,6 @@ const registerUser = async (req,res) => {
     try {
         const {name, email, password} = req.body
 
-
         if ( !name || !password || !email) {
             return res.json({success:false,message:"Missing Details"})
         }
@@ -196,53 +195,89 @@ const listAppointment = async (req,res) => {
   }
 }
 
-// API to cancel appointment
-const cancelAppointment = async (req, res) => {
+// // API to cancel appointment
+// const cancelAppointment = async (req, res) => {
+//   try {
+//     const { appointmentId } = req.body;
+
+//     // Find appointment
+//     const appointment = await appointmentModel.findById(appointmentId);
+//     if (!appointment) {
+//       return res.json({ success: false, message: "Appointment not found" });
+//     }
+
+//     const { docId, slotDate, slotTime } = appointment;
+
+//     // Fetch fresh doctor data
+//     const doctor = await doctorModel.findById(docId);
+//     if (!doctor) {
+//       return res.json({ success: false, message: "Doctor not found" });
+//     }
+
+//     // Debug: log current slots
+//     console.log("Before cancellation →", JSON.stringify(doctor.slots_booked, null, 2));
+
+//     let slots_booked = doctor.slots_booked || {};
+//     const normalizedSlotDate = slotDate.trim();
+//     const normalizedSlotTime = slotTime.trim().toLowerCase();
+
+//     // Remove slot if exists
+//     if (Array.isArray(slots_booked[normalizedSlotDate])) {
+//       slots_booked[normalizedSlotDate] = slots_booked[normalizedSlotDate].filter(
+//         t => t.trim().toLowerCase() !== normalizedSlotTime
+//       );
+
+//       // Delete date key if no more slots booked that day
+//       if (slots_booked[normalizedSlotDate].length === 0) {
+//         delete slots_booked[normalizedSlotDate];
+//       }
+//     }
+
+//     // Debug: log slots after removal
+//     console.log("After cancellation →", JSON.stringify(slots_booked, null, 2));
+
+//     // Save updated doctor data
+//     await doctorModel.findByIdAndUpdate(docId, { slots_booked }, { new: true });
+
+//     // Mark appointment as cancelled instead of deleting
+//     appointment.cancelled = true;
+//     await appointment.save();
+
+//     res.json({ success: true, message: "Appointment cancelled & slot released" });
+
+//   } catch (error) {
+//     console.error(error);
+//     res.json({ success: false, message: error.message });
+//   }
+// }*//}
+
+//API to cancel Appointment
+const cancelAppointment = async (req,res) => {
   try {
-    const { appointmentId } = req.body;
+    const {userId,appointmentId} = req.body
 
-    // Find appointment
-    const appointment = await appointmentModel.findById(appointmentId);
-    if (!appointment) {
-      return res.json({ success: false, message: "Appointment not found" });
+    const appointmentData = await appointmentModel.findById(appointmentId)
+
+    //verify appointment user 
+    if (appointmentData.userId !== userId) {
+      return res.json({success:false, message: 'Unauthorized action'})
     }
+    await appointmentModel.findByIdAndUpdate(appointmentId, {cancelled: true})
 
-    const { docId, slotDate, slotTime } = appointment;
+    // Releasing doctor slot
 
-    // Fetch fresh doctor data
-    const doctor = await doctorModel.findById(docId);
-    if (!doctor) {
-      return res.json({ success: false, message: "Doctor not found" });
-    }
-
-    let slots_booked = doctor.slots_booked || {};
-    const normalizedSlotTime = slotTime.trim().toLowerCase();
-
-    // Remove slot if exists
-    if (Array.isArray(slots_booked[slotDate])) {
-      slots_booked[slotDate] = slots_booked[slotDate].filter(
-        t => t.trim().toLowerCase() !== normalizedSlotTime
-      );
-
-      // Delete date key if no more slots booked that day
-      if (slots_booked[slotDate].length === 0) {
-        delete slots_booked[slotDate];
-      }
-    }
-
-    // Save updated doctor data
-    await doctorModel.findByIdAndUpdate(docId, { slots_booked }, { new: true });
-
-    // Remove appointment from DB
-    await appointmentModel.findByIdAndDelete(appointmentId);
-
-    res.json({ success: true, message: "Appointment cancelled & slot released" });
+    const {docId,slotDate,slotTime} = appointmentData
+    const doctorData = await doctorModel.findById(docId)
+    let slots_booked = doctorData.slots_booked
+    slots_booked[slotDate]= slots_booked[slotDate].filter(e => e!== slotTime)
+    await doctorModel.findByIdAndUpdate(docId, {slots_booked})
+    res.json({success:true, message:'Appointment Cancelled'})
 
   } catch (error) {
-    console.error(error);
+    console.log(error)
     res.json({ success: false, message: error.message });
   }
-};
+}
 
 
 const razorpayInstance = new razorpay({

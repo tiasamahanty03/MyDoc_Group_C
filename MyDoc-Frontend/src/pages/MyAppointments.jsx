@@ -12,13 +12,12 @@ const MyAppointments = () => {
   const [appointments,setappointments] = useState([])
   const months = [" ","January","February","March","April","May","June","July","August","September","October","November","December"]
 
-  const navigate = useNavigate()
-
-
   const slotDateFormat =(slotDate)=>{
     const dateArray = slotDate.split('_')
     return dateArray[0]+ " "+months[Number(dateArray[1])]+ " " + dateArray[2]
   }
+
+  const navigate = useNavigate()
   
   const getUserAppointments = async () =>{
     try {
@@ -144,7 +143,7 @@ const MyAppointments = () => {
             <div className="flex flex-col gap-2">
               {!item.cancelled && item.payment && <button className="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded-lg text-sm transition-colors duration-300"> Paid </button>}
               {!item.cancelled && !item.payment &&  <button onClick={()=>appointmentRazorpay(item._id)} className="bg-purple-500 hover:bg-purple-700 text-white py-2 px-4 rounded-lg text-sm transition-colors duration-300"> Pay Online </button>}
-              {!item.cancelled && <button onClick={()=> cancelAppointment(item._id)} className="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded-lg text-sm transition-colors duration-300"> Cancel Appointment </button>}
+              {!item.cancelled && <button onClick={()=> cancelAppointment(item._id, item.docData._id)} className="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded-lg text-sm transition-colors duration-300"> Cancel Appointment </button>}
               {item.cancelled && <button className="sm:min-w-48 py-2 border border-red-500 rounded text-red-500">Appointment cancelled</button>}
             </div>
           </div>
