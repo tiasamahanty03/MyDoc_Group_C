@@ -110,6 +110,8 @@ const getAvailableSlots = async () => {
 
       const slotDate = day + "_" + month + "_" + year;
 
+      console.log({docId, slotDate, slotTime})
+
       const { data } = await axios.post(backendUrl + "/api/user/book-appointment",{ docId, slotDate, slotTime },{ headers: { token } });
       if (data.success) {
         toast.success(data.message);
