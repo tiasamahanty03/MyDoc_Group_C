@@ -36,76 +36,63 @@ const Appointment = () => {
     console.log(docInfo)
   };
 
-  const getAvailableSlots = async () => {
-    setDocSlots([])
+const getAvailableSlots = async () => {
+  setDocSlots([]);
 
-    //getting current date
-    let today = new Date()
+  let today = new Date();
 
-    for (let i = 0; i < 8; i++) {
-      //getting current date with index
-      let currentDate = new Date(today)
-      currentDate.setDate(today.getDate() + i)
+  for (let i = 0; i < 8; i++) {
+    let currentDate = new Date(today);
+    currentDate.setDate(today.getDate() + i);
 
-      //setting end time of the date with index
-      let endTime = new Date()
-      endTime.setDate(today.getDate() + i)
-      endTime.setHours(21, 0, 0, 0)
+    let endTime = new Date();
+    endTime.setDate(today.getDate() + i);
+    endTime.setHours(21, 0, 0, 0);
 
-      //setting hours
-      if (today.getDate() === currentDate.getDate()) {
-        currentDate.setHours(
-          currentDate.getHours() > 10 ? currentDate.getHours() + 1 : 10
-        );
-        currentDate.setMinutes(currentDate.getMinutes() > 30 ? 30 : 0)
-      } else {
-        currentDate.setHours(10)
-        currentDate.setMinutes(0)
-      }
+    if (today.getDate() === currentDate.getDate()) {
+      currentDate.setHours(
+        currentDate.getHours() > 10 ? currentDate.getHours() + 1 : 10
+      );
+      currentDate.setMinutes(currentDate.getMinutes() > 30 ? 30 : 0);
+    } else {
+      currentDate.setHours(10);
+      currentDate.setMinutes(0);
+    }
 
-      let timeSlots = []
+    let timeSlots = [];
 
-      while (currentDate < endTime) {
-        let formattedTime = currentDate.toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-        })
+    while (currentDate < endTime) {
+      let formattedTime = currentDate.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
 
-        let day = currentDate.getDate();
-        let month = currentDate.getMonth() + 1;
-        let year = currentDate.getFullYear();
+      let day = currentDate.getDate();
+      let month = currentDate.getMonth() + 1;
+      let year = currentDate.getFullYear();
 
-        const slotDate = day + "_" + month + "_" + year;
-        const slotTime = formattedTime;
+      const slotDate = `${day}_${month}_${year}`;
 
-        const isSlotAvailable =
-          docInfo.slots_booked[slotDate] &&
-          docInfo.slots_booked[slotDate].includes(slotTime)
-            ? false
-            : true;
+      const isSlotBooked =
+        docInfo.slots_booked[slotDate] &&
+        docInfo.slots_booked[slotDate].includes(formattedTime);
 
-        if (isSlotAvailable) {
-          // add slot to array
-          timeSlots.push({
-            datetime: new Date(currentDate),
-            time: formattedTime,
-          });
-        }
-
-        // add slot to array
+      if (!isSlotBooked) {
         timeSlots.push({
           datetime: new Date(currentDate),
           time: formattedTime,
         });
+      }
 
-        //increment current time by 30 minutes
-        currentDate.setMinutes(currentDate.getMinutes() + 30)
-      }
-      if (timeSlots.length > 0) {
-        setDocSlots((prev) => [...prev, timeSlots])
-      }
+      currentDate.setMinutes(currentDate.getMinutes() + 30);
+    }
+
+    // Only add the day if there is at least one available slot
+    if (timeSlots.length > 0) {
+      setDocSlots((prev) => [...prev, timeSlots]);
     }
   }
+};
 
   const bookAppointment = async () => {
     if (!token) {
