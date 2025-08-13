@@ -37,6 +37,7 @@ const Appointment = () => {
   };
 
 const getAvailableSlots = async () => {
+
   setDocSlots([]);
 
   let today = new Date();
