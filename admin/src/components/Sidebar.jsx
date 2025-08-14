@@ -2,9 +2,11 @@ import React, { useContext } from "react"
 import { AdminContext } from "../context/AdminContext"
 import { NavLink } from "react-router-dom"
 import { assets } from "../assets/assets"
+import { DoctorContext } from "../context/DoctorContext"
 
 const Sidebar = () => {
   const { aToken } = useContext(AdminContext)
+  const { dToken } = useContext(DoctorContext)
 
   const navItemStyle =
     "flex items-center gap-3 px-4 py-3 rounded-lg w-full transition-all duration-300"
@@ -71,6 +73,60 @@ const Sidebar = () => {
           >
             <img src={assets.people_icon} alt="Doctors List" className="w-5" />
             <p>Doctors List</p>
+          </NavLink>
+        </ul>
+      )}
+
+
+
+
+
+      {dToken && (
+        <ul className="flex flex-col gap-3 w-full">
+          <NavLink
+            to={"/doctor-dashboard"}
+            className={({ isActive }) =>
+              `${navItemStyle} ${
+                isActive
+                  ? "bg-white text-indigo-600 font-semibold"
+                  : "text-white hover:bg-white hover:text-indigo-600"
+              }`
+            }
+          >
+            <img src={assets.home_icon} alt="Dashboard" className="w-5" />
+            <p>Dashboard</p>
+          </NavLink>
+
+          <NavLink
+            to={"/doctor-appointments"}
+            className={({ isActive }) =>
+              `${navItemStyle} ${
+                isActive
+                  ? "bg-white text-indigo-600 font-semibold"
+                  : "text-white hover:bg-white hover:text-indigo-600"
+              }`
+            }
+          >
+            <img
+              src={assets.appointment_icon}
+              alt="Appointments"
+              className="w-5"
+            />
+            <p>Appointments</p>
+          </NavLink> 
+
+          <NavLink
+            to={"/doctor-profile"}
+            className={({ isActive }) =>
+              `${navItemStyle} ${
+                isActive
+                  ? "bg-white text-indigo-600 font-semibold"
+                  : "text-white hover:bg-white hover:text-indigo-600"
+              }`
+            }
+          >
+            <img src={assets.people_icon} alt="Doctors List" className="w-5" />
+            <p>Profile</p>
           </NavLink>
         </ul>
       )}
