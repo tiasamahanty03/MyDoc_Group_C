@@ -81,22 +81,16 @@ const AllAppointments = () => {
               </p>
 
               {/* Actions */}
-              {item.cancelled ? (
+              {item.cancelled ? 
                 <p className="text-red-500 text-xs font-semibold bg-red-100 px-3 py-3 rounded-full text-center">
                   Cancelled
-                </p>
-              ) : (
-                <button
-                  className="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full shadow transition"
-                  onClick={() => cancelAppointment(item._id, )}
-                >
-                  <img
-                    className="w-4 h-4"
+                </p> : item.isCompleted ? <p className="text-green-600 text-xs font-semibold  bg-green-100 px-3 py-3 rounded-full text-center">Completed</p>
+               :<img onClick={()=> cancelAppointment(item._id)}
+                    className="w-12 h-12 mx-7 cursor-pointer"
                     src={assets.cancel_icon}
                     alt="Cancel"
                   />
-                </button>
-              )}
+              }
             </div>
           ))}
         </div>

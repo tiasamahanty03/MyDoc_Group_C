@@ -11,25 +11,23 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (aToken) {
-      getDashData()
+      getDashData();
     }
-  }, [aToken, getDashData])
+  }, [aToken, getDashData]);
 
   return (
     dashData && (
-      <div className="m-5">
+      <div className="m-5 w-full">
         <h1 className="text-2xl font-bold mb-6 text-gray-800">
           📊 Admin Dashboard
         </h1>
+
+        {/* Top summary cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Doctors Card */}
+          {/* Doctors */}
           <div className="bg-white p-6 rounded-2xl shadow-md flex items-center gap-4 hover:shadow-lg transition">
-            <div className="bg-purple-100 p-4 rounded-full">
-              <img
-                src={assets.doctor_icon}
-                alt="Doctors"
-                className="w-10 h-10"
-              />
+            <div className="bg-purple-100 p-4 rounded-full flex items-center justify-center">
+              <img src={assets.doctor_icon} alt="Doctors" className="w-10 h-10" />
             </div>
             <div>
               <p className="text-3xl font-semibold text-purple-600">
@@ -39,9 +37,9 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Appointments Card */}
+          {/* Appointments */}
           <div className="bg-white p-6 rounded-2xl shadow-md flex items-center gap-4 hover:shadow-lg transition">
-            <div className="bg-blue-100 p-4 rounded-full">
+            <div className="bg-blue-100 p-4 rounded-full flex items-center justify-center">
               <img
                 src={assets.appointment_icon}
                 alt="Appointments"
@@ -56,14 +54,10 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Patients Card */}
+          {/* Patients */}
           <div className="bg-white p-6 rounded-2xl shadow-md flex items-center gap-4 hover:shadow-lg transition">
-            <div className="bg-green-100 p-4 rounded-full">
-              <img
-                src={assets.patients_icon}
-                alt="Patients"
-                className="w-10 h-10"
-              />
+            <div className="bg-green-100 p-4 rounded-full flex items-center justify-center">
+              <img src={assets.patients_icon} alt="Patients" className="w-10 h-10" />
             </div>
             <div>
               <p className="text-3xl font-semibold text-green-600">
@@ -74,47 +68,46 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="bg-white">
-          <div className="flex items-center gap-2.5 px-4 py-4 mt-10 rounded-t border">
-            <img src={assets.list_icon} alt="" />
-            <p className="font-semibold">Latest Bookings</p>
+        {/* Latest Bookings */}
+        <div className="bg-white mt-10 rounded-2xl shadow-md p-6">
+          {/* Header */}
+          <div className="flex items-center gap-2.5 mb-5">
+            <img src={assets.list_icon} alt="" className="w-5 h-5" />
+            <p className="font-semibold text-lg text-gray-800">Latest Bookings</p>
           </div>
 
-          <div className="pt-4 border border-t-0">
+          {/* List */}
+          <div className="grid gap-4 max-h-[350px] overflow-y-auto pr-1">
             {dashData.latestAppointment.map((item, index) => (
               <div
-                className="flex items-center px-6 py-3 hover:bg-gray-100"
                 key={index}
+                className="flex items-center justify-between p-4 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition"
               >
-                <img
-                  className="rounded-full w-10"
-                  src={item.docData.image}
-                  alt=""
-                />
-                <div className="flex-1 text-sm">
-                  <p className="text-gray-800 font-medium">
-                    {item.docData.name}
-                  </p>
-                  <p className="text-gray-600">
-                    {slotDateFormat(item.slotDate)}
-                  </p>
+                {/* Left: doctor info */}
+                <div className="flex items-center gap-4">
+                  <img
+                    className="rounded-full w-12 h-12 border border-gray-200 object-cover"
+                    src={item.docData.image}
+                    alt={item.docData.name}
+                  />
+                  <div className="flex flex-col justify-center">
+                    <p className="text-gray-800 font-medium">{item.docData.name}</p>
+                    <p className="text-gray-500 text-sm">
+                      {slotDateFormat(item.slotDate)}
+                    </p>
+                  </div>
                 </div>
-                {item.cancelled ? (
-                  <p className="text-red-500 text-xs font-semibold bg-red-100 px-3 py-3 rounded-full text-center">
-                    Cancelled
-                  </p>
-                ) : (
-                  <button
-                    className="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full shadow transition"
-                    onClick={() => cancelAppointment(item._id)}
-                  >
-                    <img
-                      className="w-5 h-5"
-                      src={assets.cancel_icon}
-                      alt="Cancel"
-                    />
-                  </button>
-                )}
+
+                {/* Right: status or cancel */}
+                <div className="flex items-center">
+                  {item.cancelled ? (
+                    <p className="text-red-600 font-semibold">Cancelled</p>
+                  ) : item.isCompleted ? (
+                    <p className="text-green-600 font-semibold">Completed</p>
+                  ) : (
+                    <p className="text-yellow-600 font-semibold">Pending</p>
+                  )}
+                </div>
               </div>
             ))}
           </div>

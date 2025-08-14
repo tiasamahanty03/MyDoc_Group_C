@@ -2,9 +2,11 @@ import React, { useContext } from "react"
 import { assets } from "../assets/assets"
 import { AdminContext } from "../context/AdminContext.jsx"
 import { useNavigate } from "react-router-dom"
+import { DoctorContext } from "../context/DoctorContext.jsx"
 
 const Navbar = () => {
   const { aToken, setAToken } = useContext(AdminContext)
+  const {dToken, setDToken}= useContext(DoctorContext)
 
   const navigate = useNavigate()
 
@@ -12,6 +14,9 @@ const Navbar = () => {
     navigate("/")
     aToken && setAToken("")
     aToken && localStorage.removeItem("aToken")
+    dToken && setDToken('')
+    dToken && localStorage.removeItem('dToken')
+    
   };
 
   return (
@@ -28,7 +33,7 @@ const Navbar = () => {
       </div>
       <button
         onClick={logout}
-        className="bg-purple-500 text-white px-8 py-3 rounded-full font-medium hidden md:block hover:bg-purple-600 transition-all duration-200"
+        className='bg-gradient-to-r from-cyan-400 to-purple-500 px-8 py-3 rounded-full text-white text-sm font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out'
       >
         Logout
       </button>
