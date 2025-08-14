@@ -14,7 +14,7 @@ const Login = () => {
   const [password, setPassword] = useState('')
 
   const onSubmitHandler = async (event) => {
-    event.preventDefault()
+     event.preventDefault()
 
     try {
       if (state === 'Sign Up') {
@@ -31,7 +31,7 @@ const Login = () => {
           localStorage.setItem('token',data.token)
           setToken(data.token)
         } else {
-          toast.error(data.message)
+         toast.error(data.message)
         }
       }
     } catch (error) {
@@ -67,6 +67,7 @@ const Login = () => {
               className="border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-none focus:ring-1 focus:ring-purple-400"
               type="text"
               onChange={(e) => setFullName(e.target.value)}
+              value = {fullName}
               required
             />
           </div>
@@ -78,6 +79,7 @@ const Login = () => {
             className="border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-none focus:ring-1 focus:ring-purple-400"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
+            value = {email}
             required
           />
         </div>
@@ -88,6 +90,7 @@ const Login = () => {
             className="border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-none focus:ring-1 focus:ring-purple-400"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
+            value = {password}
             required
           />
         </div>
