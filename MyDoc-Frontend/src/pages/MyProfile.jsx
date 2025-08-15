@@ -57,7 +57,7 @@ const MyProfile = () => {
   const handleAddressChange = (field, value) => {
     setUserData(prev => ({
       ...prev,
-      address: { ...prev.address, [field]: value }
+      address: { ...(prev.address || {}), [field]: value }
     }))
   }
 
@@ -131,7 +131,7 @@ const MyProfile = () => {
             ['Gender', 'gender', 'select'],
             ['Date of Birth', 'dob', 'date']
           ].map(([label, key, type, isAddress]) => {
-            const value = isAddress ? userData.address[key] : userData[key]
+            const value = isAddress ? userData.address?.[key] || "" : userData[key] || ""
             return (
               <div key={key}>
                 <label className="text-sm font-semibold">{label}:</label>
