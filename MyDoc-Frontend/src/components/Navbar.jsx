@@ -17,6 +17,8 @@ const Navbar = () => {
   const logout = () => {
     setToken(false)
     localStorage.removeItem('token')
+    navigate("/")
+    window.scrollTo(0, 0)
   }
   const [isAdmin] = useState(true); // Change to false for non-admin
   // const [username] = useState("Tiasa!!"); // Replace with actual username from context/auth

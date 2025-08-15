@@ -10,7 +10,14 @@ const MyProfile = () => {
   const [image, setImage] = useState(false)
   const [loading, setLoading] = useState(false)
 
+  const [errors, setErrors] = useState({ phone: '', dob: '' })
+
   const updateUserProfileData = async () => {
+    if (errors.phone || errors.dob) {
+      toast.error("Please fix validation errors before saving.")
+      return
+    }
+
     setLoading(true)
     try {
       const formData = new FormData()
@@ -51,26 +58,62 @@ const MyProfile = () => {
   }
 
   const handleChange = (field, value) => {
-    setUserData(prev => ({ ...prev, [field]: value }))
+    let newValue = value
+
+    if (field === 'phone') {
+      newValue = newValue.replace(/\D/g, '') // only numbers
+      if (newValue.length > 10) newValue = newValue.slice(0, 10)
+
+      if (newValue.length !== 10) {
+        setErrors(prev => ({ ...prev, phone: 'Phone number must be exactly 10 digits.' }))
+      } else {
+        setErrors(prev => ({ ...prev, phone: '' }))
+      }
+    }
+
+    if (field === 'dob') {
+      const today = new Date().toISOString().split('T')[0]
+      if (newValue > today) {
+        setErrors(prev => ({ ...prev, dob: 'Date of birth cannot be in the future.' }))
+        newValue = today
+      } else {
+        setErrors(prev => ({ ...prev, dob: '' }))
+      }
+    }
+
+    setUserData(prev => ({ ...prev, [field]: newValue }))
   }
 
   const handleAddressChange = (field, value) => {
+    let newValue = value
+
+    if (field === 'phone') {
+      newValue = newValue.replace(/\D/g, '')
+      if (newValue.length > 10) newValue = newValue.slice(0, 10)
+
+      if (newValue.length !== 10) {
+        setErrors(prev => ({ ...prev, phone: 'Phone number must be exactly 10 digits.' }))
+      } else {
+        setErrors(prev => ({ ...prev, phone: '' }))
+      }
+    }
+
     setUserData(prev => ({
       ...prev,
-      address: { ...(prev.address || {}), [field]: value }
+      address: { ...(prev.address || {}), [field]: newValue }
     }))
   }
 
   const handleToggleEdit = () => {
     if (isEdit) {
-      updateUserProfileData() // Save changes
+      updateUserProfileData()
     } else {
-      setIsEdit(true) // Enable edit mode
+      setIsEdit(true)
     }
   }
 
   return userData && (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-purple-400 via-purple-300 to-purple-400 p-6">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-purple-300 via-blue-300 to-purple-300 p-6">
       <div className="bg-white text-gray-800 rounded-2xl shadow-2xl p-8 w-full max-w-3xl">
         <div className="flex flex-col items-center">
           {isEdit ? (
@@ -125,7 +168,7 @@ const MyProfile = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
           {[
             ['Email', 'email', 'email'],
-            ['Phone', 'phone', 'text'],
+            ['Phone', 'phone', 'number'],
             ['Address Line 1', 'line1', 'text', true],
             ['Address Line 2', 'line2', 'text', true],
             ['Gender', 'gender', 'select'],
@@ -147,17 +190,24 @@ const MyProfile = () => {
                       <option>Other</option>
                     </select>
                   ) : (
-                    <input
-                      type={type}
-                      className="w-full mt-1 border border-purple-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                      value={value || ""}
-                      onChange={e =>
-                        isAddress
-                          ? handleAddressChange(key, e.target.value)
-                          : handleChange(key, e.target.value)
-                      }
-                      placeholder={label}
-                    />
+                    <>
+                      <input
+                        type={type}
+                        className="w-full mt-1 border border-purple-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        value={value || ""}
+                        onChange={e =>
+                          isAddress
+                            ? handleAddressChange(key, e.target.value)
+                            : handleChange(key, e.target.value)
+                        }
+                        placeholder={label}
+                        {...(key === 'phone' && { maxLength: 10 })}
+                        {...(key === 'dob' && { max: new Date().toISOString().split('T')[0] })}
+                      />
+                      {errors[key] && (
+                        <p className="text-red-500 text-xs mt-1">{errors[key]}</p>
+                      )}
+                    </>
                   )
                 ) : (
                   <div className="w-full mt-1 border border-purple-200 rounded-md p-2 bg-gray-50 min-h-[42px]">

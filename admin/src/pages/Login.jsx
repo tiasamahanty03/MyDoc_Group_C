@@ -54,7 +54,7 @@ const Login = () => {
 
 
   return (
-    <form onSubmit={onSubmitHandler} className="min-h-[100vh] flex items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100">
+    <form onSubmit={onSubmitHandler} className="min-h-[100vh] flex items-center justify-center bg-gradient-to-br from-cyan-200 via-purple-200 to-blue-300">
       <div className="flex flex-col gap-5 bg-white m-auto items-start p-8 w-full max-w-sm rounded-2xl shadow-xl border border-purple-200">
         
         <div className="w-full flex justify-center">

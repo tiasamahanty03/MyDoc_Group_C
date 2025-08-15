@@ -49,7 +49,7 @@ const Login = () => {
   },[token])
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-purple-50 to-purple-100">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cyan-200 via-purple-200 to-blue-300">
       <form
         onSubmit={onSubmitHandler}
         className="flex flex-col gap-4 p-8 rounded-2xl shadow-xl bg-white min-w-[340px] sm:min-w-96 border border-purple-100 text-zinc-600 text-sm"
@@ -79,7 +79,7 @@ const Login = () => {
           <input
             className="border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-none focus:ring-1 focus:ring-purple-400"
             type="email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value.toLowerCase())}
             value = {email}
             required
           />

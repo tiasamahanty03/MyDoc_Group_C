@@ -34,7 +34,7 @@ const AllAppointments = () => {
 
         {/* Table Body */}
         <div className="max-h-[70vh] overflow-y-auto">
-          {appointments.map((item, index) => (
+          {appointments.reverse().map((item, index) => (
             <div
               key={index}
               className={`sm:grid sm:grid-cols-[0.5fr_3fr_1fr_2fr_2fr_1fr_1fr] items-center text-gray-700 py-3 px-6 border-b 
